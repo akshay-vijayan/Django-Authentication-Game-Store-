@@ -1,0 +1,128 @@
+{% load static %}<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main></main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    </head>
+
+    <body>
+        <!-- - NAVBAR CREATION -->
+        <header class="header">
+            <nav class="navbar">
+                <a href="#">Home</a>
+                <a href="#">Portfolio</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Help</a>
+            </nav>
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class='bx bx-search'></i></button>
+            </form>
+        </header>
+        <div class="background" style="background-image:linear-gradient(54deg,rgba(5, 5, 50,0.6)0%,rgba(5,5,50, 0.6)50%),url('{% static "images/logintest2.jpg" %}'); background-repeat: no-repeat !important;"></div>
+        <div class="container" style="background-image:linear-gradient(75deg,rgba(5, 5, 50)13%,rgba(5,5,50, 0.4)65%,rgba(5,5,50,0.7)95%),url('{% static "images/logintest2.jpg" %}'); background-repeat: no-repeat !important;">
+            <div class="item">
+                <h2 class="logo"><i class='bx bxl-xing'></i></h2>
+                <div class="text-item">
+                    <h2>Welcome! <br><span>
+                        To World Of Games
+                    </span></h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, repellendus?</p>
+                    <div class="social-icon">
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                        <a href="#"><i class='bx bxl-twitter'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="login-section">
+                <div class="form-box login">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div >
+                            {% if form.username.errors %}
+                            {% for error in form.username.errors %}
+                            <p class="alert alert-danger">{{error}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            <label for="{{form.username.id_for_label}}">Username</label>
+                            {{form.username}}
+                        </div>
+                        <div >
+                            {% if form.email.errors %}
+                            {% for error in form.email.errors%}
+                            <p class="alert alert-danger">{{error}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            <label for="{{form.email.id_for_label}}">Email</label>
+                            {{form.email}}
+                        </div>
+                        <div >
+                            {% if form.password1.errors %}
+                            {% for error in form.password1.errors %}
+                            <p class="alert alert-danger">{{error}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            <label for="{{form.password1.id_for_label}}">Password</label>
+                            {{form.password1}}
+                        </div>
+                        <div >
+                            {% if form.password2.errors %}
+                            {% for error in form.password2.errors %}
+                            <p class="alert alert-danger" style="padding-left:0px;padding-right:0px">{{error}}</p>
+                            {% endfor %}
+                            {% endif %}
+                            <label for="{{form.password2.id_for_label}}">Confirm Password</label>
+                            {{form.password2}}
+                        </div>
+
+                        <button class="btn" style="width:259px" type="submit">Register</button>
+                    </form>
+                  
+                </div>
+            </div>        
+        </div>
+
+
+
+
+     
+    </body>
+</html>
